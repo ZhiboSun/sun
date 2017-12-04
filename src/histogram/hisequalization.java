@@ -90,11 +90,11 @@ public class hisequalization {
 		int[] temphist = new int[256];
 		try {
 			File srcFile = new File(src);
-			BufferedImage srciImage = ImageIO.read(srcFile);
-			height = srciImage.getHeight();
-			width = srciImage.getWidth();
+			BufferedImage srcImage = ImageIO.read(srcFile);
+			height = srcImage.getHeight();
+			width = srcImage.getWidth();
 			int[] greyarray = new int[width*height];
-            greyarray = Togrey.toGrey(srciImage);//灰度化
+            greyarray = Togrey.toGrey(srcImage);//灰度化
             for(int i=0;i<width*height;i++){
             	temphist[greyarray[i]]++; 
             }//统计灰度数量
@@ -124,7 +124,8 @@ public class hisequalization {
 	        c[0] = (int)(a*hist[0]+0.5);  
 	        for(int i=1; i<256; i++){
 	        	temphist[i] = hist[i]+temphist[i-1];
-	            c[i] = (int)(a*temphist[i]+0.5);  
+	            c[i] = (int)(a*temphist[i]+0.5); 
+	            System.out.println(c[i]);
 	        }  
 	        for(int i=0; i<width; i++){  
 	            for(int j=0; j<height; j++){

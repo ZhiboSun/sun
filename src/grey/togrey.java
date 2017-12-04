@@ -7,13 +7,13 @@ public class togrey {
 		int w = image.getWidth();
 		int h = image.getHeight();
 		int[] rgb = new int[3];
-		int gray = 0;
+		int grey = 0;
 		int greyarray[] = new int[w*h];
 		for (int i = 0; i < w; i++) {
 			for (int j = 0; j < h; j++) {
 				rgb = getPixel(image, w, h, i, j);
-				gray = (int)(0.3f*rgb[0] + 0.59f*rgb[1] + 0.11f*rgb[2]);
-				greyarray[j+i*h] = gray;
+				grey = (int)(0.3f*rgb[0] + 0.59f*rgb[1] + 0.11f*rgb[2]);
+				greyarray[j+i*h] = grey;
 			}
 		}
 		return greyarray;
