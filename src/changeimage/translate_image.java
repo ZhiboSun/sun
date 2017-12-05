@@ -22,8 +22,8 @@ public class translate_image {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		int x0 = -100;
-		int y0 = -100;
+		int x0 = 100;//正数代表向右
+		int y0 = 100;//正数代表向下
 		BufferedImage destimage1 = translate(srcimage,x0,y0);
 		writeHighQuality(destimage1, dest1);
 	}
