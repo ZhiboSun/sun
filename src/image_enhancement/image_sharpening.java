@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class image_enhancement {
+public class image_sharpening {
 	private static int[][] kernels= new int[][]{{-1,-1,-1}, {-1,8,-1}, {-1,-1,-1}};
 
 	public static BufferedImage filter(BufferedImage src, BufferedImage dest) {
