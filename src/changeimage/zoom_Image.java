@@ -1,4 +1,4 @@
-package zoomImage;
+package changeimage;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
