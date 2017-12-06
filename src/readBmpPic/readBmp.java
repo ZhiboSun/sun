@@ -25,7 +25,7 @@ public class readBmp  extends javax.swing.JFrame {
 	
 	public static void main(String arg[]){
 		readBmp rBmp = new readBmp();
-		String path = "E:\\数字图象处理\\作业一\\241.bmp";
+		String path = "E:\\数字图象处理\\作业一\\test.bmp";
 		rBmp.init(path);
 	}
 
@@ -108,10 +108,11 @@ public class readBmp  extends javax.swing.JFrame {
 	public void showUI() {
 		// TODO Auto-generated method stub
 		f=new JFrame("BMP图像解析");
+
 		f.setSize(width,height);
 		f.setDefaultCloseOperation(3);
 		f.setResizable(false);
-		f.setLocationRelativeTo(null);
+		//f.setLocationRelativeTo(null);
 		
 		MyPanel panel = new MyPanel();
 		
@@ -130,6 +131,7 @@ public class readBmp  extends javax.swing.JFrame {
         f.addMouseMotionListener(new MouseMotionListener(){
         	public void mouseMoved(MouseEvent me){
         	//获得鼠标当前位置的横，纵坐标
+        
 	        	int mouseX = (int)me.getPoint().getX();
 	        	int mouseY =(int) me.getPoint().getY();
 	        	//获得该处的rgb值
