@@ -25,7 +25,7 @@ public class readBmp  extends javax.swing.JFrame {
 	
 	public static void main(String arg[]){
 		readBmp rBmp = new readBmp();
-		String path = "E:\\数字图象处理\\作业一\\lena.bmp";
+		String path = "E:\\数字图象处理\\作业一\\241.bmp";
 		rBmp.init(path);
 	}
 
@@ -173,12 +173,9 @@ public class readBmp  extends javax.swing.JFrame {
 	        public void paint(Graphics g) {  
 	            for (int i = 0; i < height; i++) {  
 	                for (int j = 0; j < width; j++) { 
-						if (red[i][j]>0&&red[i][j]<255&&green[i][j]>0&&green[i][j]<255&&blue[i][j]>0&&blue[i][j]<255) {
 							g.setColor(new Color(red[i][j],green[i][j],blue[i][j]));   //原图              	
 		                	//g.setColor(new Color((int)grey[i][j],(int)grey[i][j],(int)grey[i][j])); //灰度图
-		                    g.fillRect(j, i, 1, 1);  
-						}
-	                    
+		                    g.fillRect(j, i, 1, 1);  	                
 	                }  
 	            }  
 	        }  
