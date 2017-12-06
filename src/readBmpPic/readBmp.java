@@ -25,7 +25,7 @@ public class readBmp  extends javax.swing.JFrame {
 	
 	public static void main(String arg[]){
 		readBmp rBmp = new readBmp();
-		String path = "E:\\数字图象处理\\作业一\\241.bmp";
+		String path = "E:\\数字图象处理\\作业一\\lena.bmp";
 		rBmp.init(path);
 	}
 
@@ -46,7 +46,6 @@ public class readBmp  extends javax.swing.JFrame {
 			width = ChangeInt(infoOfPic, 7);  
 			height = ChangeInt(infoOfPic, 11);
 			System.out.println("width:"+width+"   height:"+height);
-			
 			grey = getInf(bis);// 调用可以将整个位图数据读取成byte数组的方法    
 			
 			fileInputStream.close();  
@@ -77,8 +76,13 @@ public class readBmp  extends javax.swing.JFrame {
         grey  = new float[height][width];
         //24位bmp存储是按BGR BGR。。。 存的
         //bmp位图在存储时，图片数据部分的字节数一定是4的倍数，如果不够四的倍数，在每一行要补齐字节。
-        int skipwidth = 4 - width * 3 % 4;
-        
+        //int skipwidth = 4 - width * 3 % 4;
+        int skipwidth = 0;
+        if(width*3%4!=0)
+        {
+        	skipwidth=4-width*3%4;
+        }
+       
         try {
 			for(int i = height-1;i>=0;i--){
 				for (int j = 0; j < width; j++) {
@@ -168,10 +172,13 @@ public class readBmp  extends javax.swing.JFrame {
 	        private static final long serialVersionUID = 1L;  
 	        public void paint(Graphics g) {  
 	            for (int i = 0; i < height; i++) {  
-	                for (int j = 0; j < width; j++) {  
-	                    g.setColor(new Color(red[i][j],green[i][j],blue[i][j]));   //原图              	
-	                	//g.setColor(new Color((int)grey[i][j],(int)grey[i][j],(int)grey[i][j])); //灰度图
-	                    g.fillRect(j, i, 1, 1);  
+	                for (int j = 0; j < width; j++) { 
+						if (red[i][j]>0&&red[i][j]<255&&green[i][j]>0&&green[i][j]<255&&blue[i][j]>0&&blue[i][j]<255) {
+							g.setColor(new Color(red[i][j],green[i][j],blue[i][j]));   //原图              	
+		                	//g.setColor(new Color((int)grey[i][j],(int)grey[i][j],(int)grey[i][j])); //灰度图
+		                    g.fillRect(j, i, 1, 1);  
+						}
+	                    
 	                }  
 	            }  
 	        }  
